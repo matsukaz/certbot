@@ -915,6 +915,11 @@ def prepare_and_parse_args(plugins, args, detect_defaults=False):  # pylint: dis
              "(default: the first provided domain or the name of an existing "
              "certificate on your system for the same domains)")
     helpful.add(
+        [None, "run", "certonly"],
+        "--privkey-path", dest="privkey_path", default=None,
+        help="Location of an existing private key to use in this new certificate. "
+             "(If not specified, a new key pair will be created.)")
+    helpful.add(
         [None, "testing", "renew", "certonly"],
         "--dry-run", action="store_true", dest="dry_run",
         default=flag_default("dry_run"),
